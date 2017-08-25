@@ -9,7 +9,7 @@ class Player{
     constructor(color) {
         this.color = color;
         if (color === "white") {
-            this.piece = [
+            this.pieces = [
                 ["A1", "rook", 1],
                 ["B1", "knight", 1],
                 ["C1", "bishop", 1],
@@ -30,7 +30,7 @@ class Player{
         }
         else if (color === "black")
         {
-            this.piece = [
+            this.pieces = [
                 ["A8", "rook", 1],
                 ["B8", "knight", 1],
                 ["C8", "bishop", 1],
@@ -62,7 +62,7 @@ function remove(pos){
 }
 
 function printPiece(player){
-    var	i;
+    var i;
     i = 0;
     while(i < 16){
         if (player[i][2] === 1) {
@@ -75,16 +75,16 @@ function printPiece(player){
 
 function checkIfFree(posA, whitep, blackp)
 {
-    var i =0;
-    while (whitep.piece[i]){
-        if (posA == whitep.piece[i][0]) {
+    var i = 0;
+    while (whitep.pieces[i]){
+        if (posA == whitep.pieces[i][0]) {
             return 1;
         }
         i++;
     }
     i =0;
-    while (blackp.piece[i]){
-        if (posA == blackp.piece[i][0]) {
+    while (blackp.pieces[i]){
+        if (posA == blackp.pieces[i][0]) {
             return 1;
         }
         i++;
@@ -93,12 +93,12 @@ function checkIfFree(posA, whitep, blackp)
     return 0;
 }
 
-function moove(posIni,posFinal){
+function move(posIni,posFinal){
     var i = 0;
-    while (whitep.piece[i]){
-        if (posIni == whitep.piece[i][0]) {
-            if (whitep.piece[i][2] == 1 && whitep.piece[i][1] == "pawn"){
-                moovepawn(whitep.piece[i],posIni,posFinal);
+    while (whitep.pieces[i]){
+        if (posIni == whitep.pieces[i][0]) {
+            if (whitep.pieces[i][2] == 1 && whitep.pieces[i][1] == "pawn"){
+                movepawn(whitep.pieces[i],posIni,posFinal);
                 return 0;
             }	
     
@@ -106,8 +106,8 @@ function moove(posIni,posFinal){
     i++;
     }
     i =0;
-    while (blackp.piece[i]) {
-        if (posIni == blackp.piece[i][0]) {
+    while (blackp.pieces[i]) {
+        if (posIni == blackp.pieces[i][0]) {
 
         }
         i++;
@@ -115,7 +115,16 @@ function moove(posIni,posFinal){
     return 0;
 
 }
-function moovepawn(player,posIni,posFinal){
+
+function movePiece(player, posIni, posFinal) {
+    movehistory[movehistory.length] = posIni;
+    movehistory[movehistory.length] = posFinal;
+    remove(player[0]);
+    player[0] = posFinal;
+    print("Changement de place");
+}
+
+function movePawn(player,posIni,posFinal){
     tab = [
         ["A1", "A2", "A3", "A4", "A5", "A6", "A7", "A8"],
         ["B1", "B2", "B3", "B4", "B5", "B6", "B7", "B8"],
@@ -133,43 +142,28 @@ function moovepawn(player,posIni,posFinal){
         while(y < 8){
                 if (posIni == tab[i][y] && y == 1 && posFinal == tab[i][y+2] && checkIfFree(posFinal,whitep,blackp)==0)
                 {
-                movehistory[movehistory.length]=posIni;
-                movehistory[movehistory.length]=posFinal;
-                remove(player[0]);
-                player[0] = posFinal;
-                console.log("changement de place");
-                break;
+                    movePiece(player, posIni, posFinal);
+                    break;
                 }
-                if (posIni == tab[i][y] && posFinal == tab[i][y+1] && checkIfFree(posFinal,whitep,blackp)==0){
-                movehistory[movehistory.length]=posIni;
-                movehistory[movehistory.length]=posFinal;
-                remove(player[0]);
-                player[0] = posFinal;
-                console.log("changement de place");
+                if (posIni == tab[i][y] && posFinal == tab[i][y + 1] && checkIfFree(posFinal, whitep, blackp) == 0) {
+                    movePiece(player, posIni, posFinal);
+                    break;
                 break;
             }
                 if ((posIni == tab[i][y] && posFinal == tab[i+1][y+1] && checkIfFree(posFinal,whitep,blackp)==1) || (posIni == tab[i][y] && posFinal == tab[i-1][y+1] && checkIfFree(posFinal,whitep,blackp)==1))
                 {
-                movehistory[movehistory.length]=posIni;
-                movehistory[movehistory.length]=posFinal;
-                remove(player[0]);
-                player[0] = posFinal;
-                console.log("changement de place");
+                    movePiece(player, posIni, posFinal);
+                    break;
                 break;
                 }	
             y++;
         }
-        y =0;
+        y = 0;
         i++;
     }
-printpiece(whitep.piece);
-printpiece(blackp.piece);
+    printPiece(whitep.pieces);
+    printPiece(blackp.pieces);
 }
-
-
-
-
-
 
 
 
