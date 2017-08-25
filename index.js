@@ -87,25 +87,48 @@ function checkIfFree(posA,whitep,blackp)
 
 	}
 	return 0;
+}
+
+function moove(posIni,posFinal){
+	var i =0;
+	while (whitep.piece[i]){
+		if (posIni == whitep.piece[i][0]) {
+			if (whitep.piece[i][2] == 1 && whitep.piece[i][1] == "pawn"){
+				moovepawn(whitep.piece[i],posIni,posFinal);
+				return 0;
+			}	
+	
+		}
+	i++;
+	}
+	i =0;
+	while (blackp.piece[i]){
+		if (posIni == blackp.piece[i][0]) {
+
+		}
+		i++;
+
+	}
+	return 0;	
 
 }
 function moovepawn(player,posIni,posFinal){
 	tab = [
-	["A2","A3","A4","A5","A6","A7","A8"],
-	["B2","B3","B4","B5","B6","B7","B8"],
-	["C2","C3","C4","C5","C6","C7","C8"],
-	["D2","D3","D4","D5","D6","D7","D8"],
-	["E2","E3","E4","E5","E6","E7","E8"],
-	["F2","F3","F4","F5","F6","F7","F8"],
-	["G2","G3","G4","G5","G6","G7","G8"],
-	["H2","H3","H4","H5","H6","H7","H8"],
+	["A1","A2","A3","A4","A5","A6","A7","A8"],
+	["B1","B2","B3","B4","B5","B6","B7","B8"],
+	["C1","C2","C3","C4","C5","C6","C7","C8"],
+	["D1","D2","D3","D4","D5","D6","D7","D8"],
+	["E1","E2","E3","E4","E5","E6","E7","E8"],
+	["F1","F2","F3","F4","F5","F6","F7","F8"],
+	["G1","G2","G3","G4","G5","G6","G7","G8"],
+	["H1","H2","H3","H4","H5","H6","H7","H8"],
 	]
 	var i = 0;
 	var y = 0;
 
 	while (i < 8){
-		while(y < 7){
-				if (posIni == tab[i][y] && y == 0 && posFinal == tab[i][y+2] && checkIfFree(posFinal,whitep,blackp)==0)
+		while(y < 8){
+				if (posIni == tab[i][y] && y == 1 && posFinal == tab[i][y+2] && checkIfFree(posFinal,whitep,blackp)==0)
 				{
 				movehistory[movehistory.length]=posIni;
 				movehistory[movehistory.length]=posFinal;

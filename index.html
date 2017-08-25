@@ -244,11 +244,21 @@
 
 	
 </table>
+<form name="mooveF">
+	<input type="text" name="posIni">
+	<input type="text" name="posFinal">
+	<input type="button" name="submit" onClick="controle(mooveF)">
+</form>
 <script type="text/javascript">
 
 	printpiece(whitep.piece);
 	printpiece(blackp.piece);
 
+	function controle(mooveF) {
+		var posIni = document.mooveF.posIni.value;
+		var posFinal = document.mooveF.posFinal.value;
+		moove(posIni,posFinal);
+}
 	</script>
 </body>
 </html>
