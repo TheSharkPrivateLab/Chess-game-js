@@ -2,10 +2,9 @@ function print(p) { console.log(p); }
 function ping() { print("ping"); }
 function pong() { print("pong"); }
 
-
 var movehistory = [];
 
-class Player{ 
+class Player { 
     constructor(color) {
         this.color = color;
         if (color === "white") {
@@ -52,22 +51,20 @@ class Player{
     }
 }
 
-function remove(pos){
+function remove(pos) {
     var i = 0;
-    while(i < 16){
-    var oEle = document.getElementById(pos);
-    oEle.innerHTML = "";
-    i++;
-}
+    while (i < 16) {
+        $("#pos").html("");
+        i++;
+    }
 }
 
 function printPiece(player){
-    var i;
-    i = 0;
-    while(i < 16){
+    var i = 0;
+    while(i < 16) {
         if (player[i][2] === 1) {
-    var oEle = document.getElementById(player[i][0]);
-    oEle.innerHTML = player[i][1];
+            $("#" + player[i][0]).html(player[i][1]);
+        }
     }
     i++;
 }
@@ -76,38 +73,36 @@ function printPiece(player){
 function checkIfFree(posA, whitep, blackp)
 {
     var i = 0;
-    while (whitep.pieces[i]){
-        if (posA == whitep.pieces[i][0]) {
+    while (whitep.pieces[i]) {
+        if (posA === whitep.pieces[i][0]) {
             return 1;
         }
         i++;
     }
-    i =0;
-    while (blackp.pieces[i]){
-        if (posA == blackp.pieces[i][0]) {
+    i = 0;
+    while (blackp.pieces[i]) {
+        if (posA === blackp.pieces[i][0]) {
             return 1;
         }
         i++;
-
     }
     return 0;
 }
 
 function move(posIni,posFinal){
     var i = 0;
-    while (whitep.pieces[i]){
-        if (posIni == whitep.pieces[i][0]) {
-            if (whitep.pieces[i][2] == 1 && whitep.pieces[i][1] == "pawn"){
+    while (whitep.pieces[i]) {
+        if (posIni === whitep.pieces[i][0]) {
+            if (whitep.pieces[i][2] === 1 && whitep.pieces[i][1] === "pawn"){
                 movepawn(whitep.pieces[i],posIni,posFinal);
                 return 0;
-            }	
-    
+            }
         }
-    i++;
+        i++;
     }
-    i =0;
+    i = 0;
     while (blackp.pieces[i]) {
-        if (posIni == blackp.pieces[i][0]) {
+        if (posIni === blackp.pieces[i][0]) {
 
         }
         i++;
@@ -140,17 +135,17 @@ function movePawn(player,posIni,posFinal){
 
     while (i < 8){
         while(y < 8){
-                if (posIni == tab[i][y] && y == 1 && posFinal == tab[i][y+2] && checkIfFree(posFinal,whitep,blackp)==0)
+                if (posIni === tab[i][y] && y === 1 && posFinal === tab[i][y+2] && checkIfFree(posFinal,whitep,blackp)==0)
                 {
                     movePiece(player, posIni, posFinal);
                     break;
                 }
-                if (posIni == tab[i][y] && posFinal == tab[i][y + 1] && checkIfFree(posFinal, whitep, blackp) == 0) {
+                if (posIni === tab[i][y] && posFinal === tab[i][y + 1] && checkIfFree(posFinal, whitep, blackp) === 0) {
                     movePiece(player, posIni, posFinal);
                     break;
                 break;
             }
-                if ((posIni == tab[i][y] && posFinal == tab[i+1][y+1] && checkIfFree(posFinal,whitep,blackp)==1) || (posIni == tab[i][y] && posFinal == tab[i-1][y+1] && checkIfFree(posFinal,whitep,blackp)==1))
+                if ((posIni === tab[i][y] && posFinal === tab[i+1][y+1] && checkIfFree(posFinal,whitep,blackp)==1) || (posIni === tab[i][y] && posFinal === tab[i-1][y+1] && checkIfFree(posFinal,whitep,blackp)==1))
                 {
                     movePiece(player, posIni, posFinal);
                     break;
