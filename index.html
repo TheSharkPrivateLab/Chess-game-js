@@ -1,264 +1,265 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Chess game</title>
-	<script type="text/javascript" src="index.js"></script>
-<link rel="stylesheet" type="text/css" href="index.css">
+    <title>Chess game</title>
+    <script type="text/javascript" src="index.js"></script>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
 <script type="text/javascript">
-	var whitep = new playerwhite();
-	var	blackp = new playerblack();
-	console.log(whitep);
+    var whitep = new Player("white");
+    var blackp = new Player("black");
+    print(whitep);
 </script>
 <table>
-	<tr>
-		<td>A</td>
-		<td>B</td>
-		<td>C</td>
-		<td>D</td>
-		<td>E</td>
-		<td>F</td>
-		<td>G</td>
-		<td>H</td>
-	</tr>
-	<tr>
-		<td class="white" id="A8">
-		<p></p>
-		</td>
-		<td class="black" id="B8">
-		<p></p>
-		</td>
-		<td class="white" id="C8">
-		<p></p>
-		</td>
-		<td class="black" id="D8">
-		<p></p>
-		</td>
-		<td class="white" id="E8">
-		<p></p>
-		</td>
-		<td class="black" id="F8">
-		<p></p>
-		</td>
-		<td class="white" id="G8">
-		<p></p>
-		</td>
-		<td class="black" id="H8">
-		<p></p>
-		</td>
-		<td>8</td>
-	</tr>
-		<tr>
-		<td class="black" id="A7">
-		<p></p>
-		</td>
-		<td class="white" id="B7">
-		<p></p>
-		</td>
-		<td class="black" id="C7">
-		<p></p>
-		</td>
-		<td class="white" id="D7">
-		<p></p>
-		</td>
-		<td class="black" id="E7">
-		<p></p>
-		</td>
-		<td class="white" id="F7">
-		<p></p>
-		</td>
-		<td class="black" id="G7">
-		<p></p>
-		</td>
-		<td class="white" id="H7">
-		<p></p>
-		</td>
-		<td>7</td>
-	</tr>
+    <tr>
+        <td>A</td>
+        <td>B</td>
+        <td>C</td>
+        <td>D</td>
+        <td>E</td>
+        <td>F</td>
+        <td>G</td>
+        <td>H</td>
+    </tr>
+    <tr>
+        <td class="white" id="A8">
+        <p></p>
+        </td>
+        <td class="black" id="B8">
+        <p></p>
+        </td>
+        <td class="white" id="C8">
+        <p></p>
+        </td>
+        <td class="black" id="D8">
+        <p></p>
+        </td>
+        <td class="white" id="E8">
+        <p></p>
+        </td>
+        <td class="black" id="F8">
+        <p></p>
+        </td>
+        <td class="white" id="G8">
+        <p></p>
+        </td>
+        <td class="black" id="H8">
+        <p></p>
+        </td>
+        <td>8</td>
+    </tr>
+        <tr>
+        <td class="black" id="A7">
+        <p></p>
+        </td>
+        <td class="white" id="B7">
+        <p></p>
+        </td>
+        <td class="black" id="C7">
+        <p></p>
+        </td>
+        <td class="white" id="D7">
+        <p></p>
+        </td>
+        <td class="black" id="E7">
+        <p></p>
+        </td>
+        <td class="white" id="F7">
+        <p></p>
+        </td>
+        <td class="black" id="G7">
+        <p></p>
+        </td>
+        <td class="white" id="H7">
+        <p></p>
+        </td>
+        <td>7</td>
+    </tr>
 
-	<tr>
-		<td class="white" id="A6">
-		<p></p>
-		</td>
-		<td class="black" id="B6"> 
-		<p></p>
-		</td>
-		<td class="white" id="C6">
-		<p></p>
-		</td>
-		<td class="black" id="D6">
-		<p></p>
-		</td>
-		<td class="white" id="E6">
-		<p></p>
-		</td>
-		<td class="black" id="F6">
-		<p></p>
-		</td>
-		<td class="white" id="G6">
-		<p></p>
-		</td>
-		<td class="black" id="H6">
-		<p></p>
-		</td>
-		<td>6</td>
-	</tr>
-		<tr>
-		<td class="black" id="A5">
-		<p></p>
-		</td>
-		<td class="white" id="B5">
-		<p></p>
-		</td>
-		<td class="black" id="C5">
-		<p></p>
-		</td>
-		<td class="white" id="D5">
-		<p></p>
-		</td>
-		<td class="black" id="E5">
-		<p></p>
-		</td>
-		<td class="white" id="F5">
-		<p></p>
-		</td>
-		<td class="black" id="G5">
-		<p></p>
-		</td>
-		<td class="white" id="H5">
-		<p></p>
-		</td>
-		<td>5</td>
-	</tr>
+    <tr>
+        <td class="white" id="A6">
+        <p></p>
+        </td>
+        <td class="black" id="B6"> 
+        <p></p>
+        </td>
+        <td class="white" id="C6">
+        <p></p>
+        </td>
+        <td class="black" id="D6">
+        <p></p>
+        </td>
+        <td class="white" id="E6">
+        <p></p>
+        </td>
+        <td class="black" id="F6">
+        <p></p>
+        </td>
+        <td class="white" id="G6">
+        <p></p>
+        </td>
+        <td class="black" id="H6">
+        <p></p>
+        </td>
+        <td>6</td>
+    </tr>
+        <tr>
+        <td class="black" id="A5">
+        <p></p>
+        </td>
+        <td class="white" id="B5">
+        <p></p>
+        </td>
+        <td class="black" id="C5">
+        <p></p>
+        </td>
+        <td class="white" id="D5">
+        <p></p>
+        </td>
+        <td class="black" id="E5">
+        <p></p>
+        </td>
+        <td class="white" id="F5">
+        <p></p>
+        </td>
+        <td class="black" id="G5">
+        <p></p>
+        </td>
+        <td class="white" id="H5">
+        <p></p>
+        </td>
+        <td>5</td>
+    </tr>
 
-	<tr>
-		<td class="white" id="A4">
-		<p></p>
-		</td>
-		<td class="black" id="B4">
-		<p></p>
-		</td>
-		<td class="white" id="C4">
-		<p></p>
-		</td>
-		<td class="black" id="D4">
-		<p></p>
-		</td>
-		<td class="white" id="E4">
-		<p></p>
-		</td>
-		<td class="black" id="F4">
-		<p></p>
-		</td>
-		<td class="white" id="G4">
-		<p></p>
-		</td>
-		<td class="black" id="H4">
-		<p></p>
-		</td>
-		<td>4</td>
-	</tr>
-		<tr>
-		<td class="black" id="A3">
-		<p></p>
-		</td>
-		<td class="white" id="B3">
-		<p></p>
-		</td>
-		<td class="black" id="C3">
-		<p></p>
-		</td>
-		<td class="white" id="D3">
-		<p></p>
-		</td>
-		<td class="black" id="E3">
-		<p></p>
-		</td>
-		<td class="white" id="F3">
-		<p></p>
-		</td>
-		<td class="black" id="G3">
-		<p></p>
-		</td>
-		<td class="white" id="H3">
-		<p></p>
-		</td>
-		<td>3</td>
-	</tr>
+    <tr>
+        <td class="white" id="A4">
+        <p></p>
+        </td>
+        <td class="black" id="B4">
+        <p></p>
+        </td>
+        <td class="white" id="C4">
+        <p></p>
+        </td>
+        <td class="black" id="D4">
+        <p></p>
+        </td>
+        <td class="white" id="E4">
+        <p></p>
+        </td>
+        <td class="black" id="F4">
+        <p></p>
+        </td>
+        <td class="white" id="G4">
+        <p></p>
+        </td>
+        <td class="black" id="H4">
+        <p></p>
+        </td>
+        <td>4</td>
+    </tr>
+        <tr>
+        <td class="black" id="A3">
+        <p></p>
+        </td>
+        <td class="white" id="B3">
+        <p></p>
+        </td>
+        <td class="black" id="C3">
+        <p></p>
+        </td>
+        <td class="white" id="D3">
+        <p></p>
+        </td>
+        <td class="black" id="E3">
+        <p></p>
+        </td>
+        <td class="white" id="F3">
+        <p></p>
+        </td>
+        <td class="black" id="G3">
+        <p></p>
+        </td>
+        <td class="white" id="H3">
+        <p></p>
+        </td>
+        <td>3</td>
+    </tr>
 
-	<tr>
-		<td class="white" id="A2">
-		<p></p>
-		</td>
-		<td class="black" id="B2">
-		<p></p>
-		</td>
-		<td class="white" id="C2">
-		<p></p>
-		</td>
-		<td class="black" id="D2">
-		<p></p>
-		</td>
-		<td class="white" id="E2">
-		<p></p>
-		</td>
-		<td class="black" id="F2">
-		<p></p>
-		</td>
-		<td class="white" id="G2">
-		<p></p>
-		</td>
-		<td class="black" id="H2">
-		<p></p>
-		</td>
-		<td>2</td>
-	</tr>
-		<tr>
-		<td class="black" id="A1">
-		<p></p>
-		</td>
-		<td class="white" id="B1"> 
-		<p></p>
-		</td>
-		<td class="black" id="C1">
-		<p></p>
-		</td>
-		<td class="white" id="D1">
-		<p></p>
-		</td>
-		<td class="black" id="E1">
-		<p></p>
-		</td>
-		<td class="white" id="F1">
-		<p></p>
-		</td>
-		<td class="black" id="G1">
-		<p></p>
-		</td>
-		<td class="white" id="H1">
-		<p></p>
-		</td>
-		<td>1</td>
-	</tr>
+    <tr>
+        <td class="white" id="A2">
+        <p></p>
+        </td>
+        <td class="black" id="B2">
+        <p></p>
+        </td>
+        <td class="white" id="C2">
+        <p></p>
+        </td>
+        <td class="black" id="D2">
+        <p></p>
+        </td>
+        <td class="white" id="E2">
+        <p></p>
+        </td>
+        <td class="black" id="F2">
+        <p></p>
+        </td>
+        <td class="white" id="G2">
+        <p></p>
+        </td>
+        <td class="black" id="H2">
+        <p></p>
+        </td>
+        <td>2</td>
+    </tr>
+        <tr>
+        <td class="black" id="A1">
+        <p></p>
+        </td>
+        <td class="white" id="B1"> 
+        <p></p>
+        </td>
+        <td class="black" id="C1">
+        <p></p>
+        </td>
+        <td class="white" id="D1">
+        <p></p>
+        </td>
+        <td class="black" id="E1">
+        <p></p>
+        </td>
+        <td class="white" id="F1">
+        <p></p>
+        </td>
+        <td class="black" id="G1">
+        <p></p>
+        </td>
+        <td class="white" id="H1">
+        <p></p>
+        </td>
+        <td>1</td>
+    </tr>
 
-	
+    
 </table>
 <form name="mooveF">
-	<input type="text" name="posIni">
-	<input type="text" name="posFinal">
-	<input type="button" name="submit" onClick="controle(mooveF)">
+    <input type="text" name="posIni">
+    <input type="text" name="posFinal">
+    <input type="button" name="submit" onClick="controle(mooveF)">
 </form>
 <script type="text/javascript">
 
-	printpiece(whitep.piece);
-	printpiece(blackp.piece);
+    printPiece(whitep.piece);
+    printPiece(blackp.piece);
 
-	function controle(mooveF) {
-		var posIni = document.mooveF.posIni.value;
-		var posFinal = document.mooveF.posFinal.value;
-		moove(posIni,posFinal);
+    function controle(mooveF) {
+        var posIni = document.mooveF.posIni.value;
+        var posFinal = document.mooveF.posFinal.value;
+        moove(posIni,posFinal);
 }
-	</script>
+    </script>
 </body>
 </html>
