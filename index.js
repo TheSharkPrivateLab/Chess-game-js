@@ -9,7 +9,7 @@ class Player{
     constructor(color) {
         this.color = color;
         if (color === "white") {
-            this.piece = [
+            this.pieces = [
                 ["A1", "rook", 1],
                 ["B1", "knight", 1],
                 ["C1", "bishop", 1],
@@ -30,7 +30,7 @@ class Player{
         }
         else if (color === "black")
         {
-            this.piece = [
+            this.pieces = [
                 ["A8", "rook", 1],
                 ["B8", "knight", 1],
                 ["C8", "bishop", 1],
@@ -76,15 +76,15 @@ function printPiece(player){
 function checkIfFree(posA, whitep, blackp)
 {
     var i =0;
-    while (whitep.piece[i]){
-        if (posA == whitep.piece[i][0]) {
+    while (whitep.pieces[i]){
+        if (posA == whitep.pieces[i][0]) {
             return 1;
         }
         i++;
     }
     i =0;
-    while (blackp.piece[i]){
-        if (posA == blackp.piece[i][0]) {
+    while (blackp.pieces[i]){
+        if (posA == blackp.pieces[i][0]) {
             return 1;
         }
         i++;
@@ -95,10 +95,10 @@ function checkIfFree(posA, whitep, blackp)
 
 function moove(posIni,posFinal){
     var i = 0;
-    while (whitep.piece[i]){
-        if (posIni == whitep.piece[i][0]) {
-            if (whitep.piece[i][2] == 1 && whitep.piece[i][1] == "pawn"){
-                moovepawn(whitep.piece[i],posIni,posFinal);
+    while (whitep.pieces[i]){
+        if (posIni == whitep.pieces[i][0]) {
+            if (whitep.pieces[i][2] == 1 && whitep.pieces[i][1] == "pawn"){
+                moovepawn(whitep.pieces[i],posIni,posFinal);
                 return 0;
             }	
     
@@ -106,8 +106,8 @@ function moove(posIni,posFinal){
     i++;
     }
     i =0;
-    while (blackp.piece[i]) {
-        if (posIni == blackp.piece[i][0]) {
+    while (blackp.pieces[i]) {
+        if (posIni == blackp.pieces[i][0]) {
 
         }
         i++;
@@ -162,8 +162,8 @@ function moovepawn(player,posIni,posFinal){
         y =0;
         i++;
     }
-printpiece(whitep.piece);
-printpiece(blackp.piece);
+    printPiece(whitep.pieces);
+    printPiece(blackp.pieces);
 }
 
 
