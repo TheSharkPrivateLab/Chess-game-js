@@ -245,20 +245,20 @@
 
     
 </table>
-<form name="mooveF">
+<form name="moveF">
     <input type="text" name="posIni">
     <input type="text" name="posFinal">
-    <input type="button" name="submit" onClick="controle(mooveF)">
+    <input type="button" name="submit" onClick="control(moveF)">
 </form>
 <script type="text/javascript">
 
     printPiece(whitep.pieces);
     printPiece(blackp.pieces);
 
-    function controle(mooveF) {
-        var posIni = document.mooveF.posIni.value;
-        var posFinal = document.mooveF.posFinal.value;
-        moove(posIni,posFinal);
+    function control(moveF) {
+        var posIni = document.moveF.posIni.value;
+        var posFinal = document.moveF.posFinal.value;
+        move(posIni,posFinal);
 }
     </script>
 </body>
